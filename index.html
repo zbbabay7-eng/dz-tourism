@@ -15,10 +15,10 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
+        .testimonial { background: #f9f9f9; padding: 20px; margin-top: 20px; border-left: 5px solid #D4AF37; }
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
-        /* Booking & Offline */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-content { background: white; margin: 15% auto; padding: 20px; width: 300px; border-radius: 5px; text-align: center; }
+        .modal-content { background: white; margin: 10% auto; padding: 20px; width: 400px; border-radius: 5px; text-align: center; }
         #offline-badge { display: none; position: fixed; top: 10px; right: 10px; background: red; color: white; padding: 5px 10px; border-radius: 20px; }
     </style>
 </head>
@@ -29,66 +29,68 @@
         <nav>
             <a href="#">Home</a>
             <a href="#destinations">Destinations</a>
-            <a href="#culture">Culture</a>
-            <button onclick="document.getElementById('modal').style.display='block'" class="btn">Book Now</button>
+            <a href="#packages">Packages</a>
+            <a href="#testimonials">Testimonials</a>
         </nav>
     </header>
     <section class="hero">
         <h1>Welcome to Algeria</h1>
         <p>Jewel of North Africa: Sahara, Mediterranean, and History.</p>
-        <a href="#destinations" class="btn">Explore Algeria</a>
+        <a href="#packages" class="btn">View Packages</a>
     </section>
-    <div class="container" id="destinations">
-        <h2>Top Destinations</h2>
+
+    <div class="container" id="packages">
+        <h2>Our Travel Packages</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1605809562725-d72b26090543?q=80&w=1000" alt="Algiers Kasbah">
-                <h3>Algiers Kasbah</h3>
-                <p>Historic fortress and UNESCO heritage site.</p>
+                <h3>Budget Adventure</h3>
+                <p>Perfect for backpackers exploring Saharan gems.</p>
+                <button onclick="openModal('Budget Adventure')" class="btn">Book Now</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1627916530650-e81c19b35b62?q=80&w=1000" alt="Djanet Sahara">
-                <h3>Djanet / Sahara</h3>
-                <p>Majestic golden dunes and ancient rock art.</p>
+                <h3>Classic Cultural</h3>
+                <p>Guided history tours of ancient Algerian sites.</p>
+                <button onclick="openModal('Classic Cultural')" class="btn">Book Now</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1632733719717-380387b92706?q=80&w=1000" alt="Constantine">
-                <h3>Constantine</h3>
-                <p>The city of iconic suspension bridges.</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1579294276707-1603588939c4?q=80&w=1000" alt="Oran">
-                <h3>Oran</h3>
-                <p>Radiant city, home of Rai music.</p>
+                <h3>Luxury VIP</h3>
+                <p>Premium desert glamping and private transfers.</p>
+                <button onclick="openModal('Luxury VIP')" class="btn">Book Now</button>
             </div>
         </div>
     </div>
+
+    <div class="container" id="testimonials">
+        <h2>What Travelers Say</h2>
+        <div class="testimonial">
+            <p>"The desert sunset in Djanet was life-changing!" - <i>Ahmed, UAE</i></p>
+        </div>
+        <div class="testimonial">
+            <p>"Constantine bridges were spectacular. Unforgettable history." - <i>Sarah, UK</i></p>
+        </div>
+    </div>
+
     <div id="modal" class="modal">
         <div class="modal-content">
             <h3 id="modal-title">Book Your Trip</h3>
-            <p id="modal-body">Fill out the form to receive a code.</p>
+            <p id="modal-body">Confirm your selection: <b id="tier-name"></b></p>
             <button id="book-btn" onclick="submitBooking()" class="btn">Confirm Booking</button>
             <button onclick="document.getElementById('modal').style.display='none'" class="btn" style="background:#888">Close</button>
         </div>
     </div>
+
     <footer>&copy; 2026 DZ Tourism - Proudly Algerian</footer>
     <script>
-        // Booking Logic
+        function openModal(tier) {
+            document.getElementById('tier-name').innerText = tier;
+            document.getElementById('modal').style.display = 'block';
+        }
         function submitBooking() {
             const code = 'DZ-' + Math.random().toString(36).substr(2, 6).toUpperCase();
             document.getElementById('modal-title').innerText = 'Confirmed!';
-            document.getElementById('modal-body').innerText = 'Your reservation code: ' + code;
+            document.getElementById('modal-body').innerText = 'Your ' + document.getElementById('tier-name').innerText + ' package is booked. Reservation code: ' + code;
             document.getElementById('book-btn').style.display = 'none';
         }
-
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgKGUpID0+IGUud2FpdFVudGlsKGNhY2hlcy5vcGVuKCdkei1jYWNoZScpLnRoZW4oYyA9PiBjLmFkZEFsbChbJ2EvJ10pKSkpOwpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGgnLCAoZSkgPT4gZS5yZXNwb25kV2l0aChjYWNoZXMubWF0Y2goZS5yZXF1ZXN0KS50aGVuKHIgPT4gciB8fCBmZXRjaChlLnJlcXVlc3QpKSkpOw==');
-        }
-
-        // Offline Badge
-        window.addEventListener('offline', () => document.getElementById('offline-badge').style.display = 'block');
-        window.addEventListener('online', () => document.getElementById('offline-badge').style.display = 'none');
     </script>
 </body>
-</html>",message:
+</html>
