@@ -3,30 +3,49 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>DZ-Tourism</title>
+    <title>DZ-Tourism | Premium Booking</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; text-align: center; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); height: 400px; color: white; display: flex; align-items: center; justify-content: center; }
-        .container { padding: 20px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; color: #333; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); height: 500px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .container { padding: 40px 20px; }
+        .booking-section { padding: 60px 20px; background: #f9f9f9; border-top: 5px solid #007bff; }
+        .form-card { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .form-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 15px; width: 100%; border: none; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: bold; }
+        button:hover { background: #0056b3; }
     </style>
 </head>
 <body>
-    <div class='hero'><h1>Visit Algeria</h1></div>
-    <div class='container'>
-        <h2>Discover Algeria</h2>
-        <p>Explore the stunning desert sunsets, historic cities like Annaba, and our beautiful coastlines.</p>
+    <div class='hero'>
+        <h1>Welcome to Algeria</h1>
+        <p>Experience the magic of the Sahara and the Mediterranean coast.</p>
     </div>
-
-    <section class='booking-section' style='padding: 40px 20px; background: #f4f4f4;'>
-        <h2>Book Your Trip</h2>
-        <form id='bookingForm' style='max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px;'>
-            <label>Destination:</label><br>
-            <input type='text' required style='width: 100%; padding: 8px; margin-bottom: 10px;'><br>
-            <label>Check-in Date:</label><br>
-            <input type='date' required style='width: 100%; padding: 8px; margin-bottom: 10px;'><br>
-            <button type='submit' style='background: #007bff; color: white; padding: 10px; width: 100%; border: none; cursor: pointer;'>Book Now</button>
-        </form>
+    
+    <section class='booking-section'>
+        <h2>Reserve Your Adventure</h2>
+        <div class='form-card'>
+            <form id='bookingForm'>
+                <div class='form-group'>
+                    <label>Select Tour Package</label>
+                    <select required>
+                        <option value='sahara'>Sahara Desert Expedition</option>
+                        <option value='annaba'>Historic Annaba Tour</option>
+                        <option value='coast'>Mediterranean Coastal Escape</option>
+                    </select>
+                </div>
+                <div class='form-group'>
+                    <label>Check-in Date</label>
+                    <input type='date' required>
+                </div>
+                <div class='form-group'>
+                    <label>Number of Guests</label>
+                    <input type='number' min='1' max='10' value='1'>
+                </div>
+                <button type='submit'>Secure Booking</button>
+            </form>
+        </div>
     </section>
-
 </body>
 </html>
