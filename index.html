@@ -6,16 +6,19 @@
     <title>DZ Tourism - Discover Algeria</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { line-height: 1.6; color: #D4AF37; }
+        body { line-height: 1.6; color: #333; }
         header { background: #3E2723; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
         .nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
         .hero { background: url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2070&auto=format&fit=crop'); background-size: cover; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .btn { padding: 10px 20px; background: #D4AF37; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        .btn { padding: 10px 20px; background: #D4AF37; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; cursor: pointer; }
         .container { padding: 50px 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+        /* Booking Modal */
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .modal-content { background: white; margin: 15% auto; padding: 20px; width: 300px; border-radius: 5px; text-align: center; }
     </style>
 </head>
 <body>
@@ -25,6 +28,7 @@
             <a href="#">Home</a>
             <a href="#destinations">Destinations</a>
             <a href="#culture">Culture</a>
+            <button onclick="document.getElementById('modal').style.display='block'" class="btn">Book Now</button>
         </nav>
     </header>
     <section class="hero">
@@ -39,27 +43,43 @@
                 <img src="https://images.unsplash.com/photo-1605809562725-d72b26090543?q=80&w=1000" alt="Algiers Kasbah">
                 <h3>Algiers Kasbah</h3>
                 <p>Historic fortress and UNESCO heritage site.</p>
+                <p><strong>Seasonal Rate:</strong> $100/night</p>
+                <p><small>Trivago Price Comparison: -15% cheaper here</small></p>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1627916530650-e81c19b35b62?q=80&w=1000" alt="Djanet Sahara">
                 <h3>Djanet / Sahara</h3>
                 <p>Majestic golden dunes and ancient rock art.</p>
+                <p><strong>Seasonal Rate:</strong> $150/night</p>
+                <p><small>Trivago Price Comparison: -10% cheaper here</small></p>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1632733719717-380387b92706?q=80&w=1000" alt="Constantine">
                 <h3>Constantine</h3>
                 <p>The city of iconic suspension bridges.</p>
+                <p><strong>Seasonal Rate:</strong> $120/night</p>
+                <p><small>Trivago Price Comparison: -20% cheaper here</small></p>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1579294276707-1603588939c4?q=80&w=1000" alt="Oran">
                 <h3>Oran</h3>
                 <p>Radiant city, home of Rai music.</p>
+                <p><strong>Seasonal Rate:</strong> $130/night</p>
+                <p><small>Trivago Price Comparison: -12% cheaper here</small></p>
             </div>
         </div>
     </div>
     <div class="container" id="culture">
         <h2>Culture & Food</h2>
         <p>Experience the warmth of Algerian hospitality and delicious traditional cuisine like Couscous and Tajine.</p>
+        <p style="margin-top:20px;"><strong>Promo Code:</strong> Use <code>DZ20</code> for 20% off!</p>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3>Book Your Trip</h3>
+            <p>Fill out the form to proceed.</p>
+            <button onclick="document.getElementById('modal').style.display='none'">Close</button>
+        </div>
     </div>
     <footer>&copy; 2026 DZ Tourism - Proudly Algerian</footer>
 </body>
