@@ -8,7 +8,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { line-height: 1.6; color: #333; }
         header { background: #006633; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1598198750805-4c09d5718a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1590161427181-7925e0e0e03e?auto=format&fit=crop&w=1350&q=80'); background-size: cover; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
         .btn { padding: 10px 20px; background: #ffcc00; color: #333; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
         .container { padding: 50px 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -20,22 +21,41 @@
 <body>
     <header>
         <h1>DZ Tourism</h1>
-        <nav><a href="#" style="color:white; text-decoration:none;">Home</a></nav>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#culture">Culture</a>
+        </nav>
     </header>
     <section class="hero">
-        <h1>Discover the Beauty of Algeria</h1>
-        <p>Explore the Sahara, Ancient Ruins, and Mediterranean Coast.</p>
-        <a href="#destinations" class="btn">Explore Destinations</a>
+        <h1>Welcome to Algeria</h1>
+        <p>Jewel of North Africa: Sahara, Mediterranean, and History.</p>
+        <a href="#destinations" class="btn">Explore Algeria</a>
     </section>
     <div class="container" id="destinations">
         <h2>Top Destinations</h2>
         <div class="grid">
-            <div class="card"><h3>Algiers Casbah</h3><p>A historic citadel and UNESCO site.</p></div>
-            <div class="card"><h3>Djanet/Sahara</h3><p>Majestic dunes and ancient rock art.</p></div>
-            <div class="card"><h3>Oran</h3><p>The radiant city of Rai music.</p></div>
-            <div class="card"><h3>Constantine</h3><p>The city of bridges.</p></div>
-            <div class="card"><h3>Tipaza</h3><p>Stunning Roman ruins by the sea.</p></div>
+            <div class="card">
+                <h3>Algiers Kasbah</h3>
+                <p>Historic fortress and UNESCO heritage site.</p>
+            </div>
+            <div class="card">
+                <h3>Djanet / Sahara</h3>
+                <p>Majestic golden dunes and ancient rock art.</p>
+            </div>
+            <div class="card">
+                <h3>Constantine</h3>
+                <p>The city of iconic suspension bridges.</p>
+            </div>
+            <div class="card">
+                <h3>Oran</h3>
+                <p>Radiant city, home of Rai music.</p>
+            </div>
         </div>
+    </div>
+    <div class="container" id="culture">
+        <h2>Culture & Food</h2>
+        <p>Experience the warmth of Algerian hospitality and delicious traditional cuisine like Couscous and Tajine.</p>
     </div>
     <footer>&copy; 2026 DZ Tourism - Proudly Algerian</footer>
 </body>
