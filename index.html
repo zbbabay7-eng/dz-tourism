@@ -12,105 +12,87 @@
         .hero { background: url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2070&auto=format&fit=crop'); background-size: cover; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
         .btn { padding: 10px 20px; background: #D4AF37; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; cursor: pointer; border: none; }
         .container { padding: 50px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
-        .testimonial { background: #f9f9f9; padding: 20px; margin-top: 20px; border-left: 5px solid #D4AF37; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-content { background: white; margin: 10% auto; padding: 20px; width: 400px; border-radius: 5px; text-align: center; }
-        #offline-badge { display: none; position: fixed; top: 10px; right: 10px; background: red; color: white; padding: 5px 10px; border-radius: 20px; }
-        .rating { margin-top: 15px; display: flex; gap: 5px; cursor: pointer; }
-        .rating span { font-size: 24px; color: #ccc; }
-        .rating span.active { color: #D4AF37; }
     </style>
 </head>
 <body>
-    <div id="offline-badge">Offline Mode</div>
     <header>
         <h1>DZ Tourism</h1>
-        <nav>
+        <nav class="nav">
             <a href="#">Home</a>
-            <a href="#destinations">Destinations</a>
-            <a href="#packages">Packages</a>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#hotels">Hotels</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#monuments">Monuments</a>
+            <a href="#flights">Flights</a>
         </nav>
     </header>
     <section class="hero">
-        <h1>Welcome to Algeria</h1>
-        <p>Jewel of North Africa: Sahara, Mediterranean, and History.</p>
-        <a href="#packages" class="btn">View Packages</a>
+        <h1>Discover Algeria</h1>
+        <p>From the Casbah to the Sahara.</p>
+        <a href="#monuments" class="btn">Explore Now</a>
     </section>
 
-    <div class="container" id="packages">
-        <h2>Our Travel Packages</h2>
+    <div class="container" id="hotels">
+        <h2>Luxury Stays</h2>
         <div class="grid">
             <div class="card">
-                <h3>Budget Adventure</h3>
-                <p>Perfect for backpackers exploring Saharan gems.</p>
-                <button onclick="openModal('Budget Adventure')" class="btn">Book Now</button>
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500" alt="Hotel">
+                <h3>Algiers Luxury</h3>
+                <p>Five-star elegance overlooking the Mediterranean.</p>
             </div>
             <div class="card">
-                <h3>Classic Cultural</h3>
-                <p>Guided history tours of ancient Algerian sites.</p>
-                <button onclick="openModal('Classic Cultural')" class="btn">Book Now</button>
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500" alt="Hotel">
+                <h3>Sahara Retreat</h3>
+                <p>Authentic and luxurious desert experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="cuisine">
+        <h2>Traditional Cuisine</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=500" alt="Food">
+                <h3>Authentic Couscous</h3>
+                <p>Traditional culinary journeys in the heart of Casbah.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="monuments">
+        <h2>Historical Treasures</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1616781223945-81216d6a2f4c?w=500" alt="Timgad">
+                <h3>Timgad Ruins</h3>
+                <p>Explore the best-preserved Roman city in North Africa.</p>
             </div>
             <div class="card">
-                <h3>Luxury VIP</h3>
-                <p>Premium desert glamping and private transfers.</p>
-                <button onclick="openModal('Luxury VIP')" class="btn">Book Now</button>
+                <img src="https://images.unsplash.com/photo-1596482163351-408a264a6d1a?w=500" alt="Tipaza">
+                <h3>Tipaza</h3>
+                <p>Breathtaking ancient ruins by the sea.</p>
             </div>
         </div>
     </div>
 
-    <div class="container" id="testimonials">
-        <h2>What Travelers Say</h2>
-        <div class="testimonial">
-            <p>"The desert sunset in Djanet was life-changing!" - <i>Ahmed, UAE</i></p>
-            <div class="rating" onclick="rate(this)">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    <div class="container" id="flights">
+        <h2>Flight Connections</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Air Algérie</h3>
+                <p>Connecting you to the world with daily flights.</p>
             </div>
-            <p class="rating-feedback"></p>
-        </div>
-        <div class="testimonial">
-            <p>"Constantine bridges were spectacular. Unforgettable history." - <i>Sarah, UK</i></p>
-            <div class="rating" onclick="rate(this)">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <div class="card">
+                <h3>Tassili Airlines</h3>
+                <p>Your partner for domestic exploration.</p>
             </div>
-            <p class="rating-feedback"></p>
         </div>
     </div>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h3 id="modal-title">Book Your Trip</h3>
-            <p id="modal-body">Confirm your selection: <b id="tier-name"></b></p>
-            <button id="book-btn" onclick="submitBooking()" class="btn">Confirm Booking</button>
-            <button onclick="document.getElementById('modal').style.display='none'" class="btn" style="background:#888">Close</button>
-        </div>
-    </div>
-
-    <footer>&copy; 2026 DZ Tourism - Proudly Algerian</footer>
-    <script>
-        function openModal(tier) {
-            document.getElementById('tier-name').innerText = tier;
-            document.getElementById('modal').style.display = 'block';
-        }
-        function submitBooking() {
-            const code = 'DZ-' + Math.random().toString(36).substr(2, 6).toUpperCase();
-            document.getElementById('modal-title').innerText = 'Confirmed!';
-            document.getElementById('modal-body').innerText = 'Your ' + document.getElementById('tier-name').innerText + ' package is booked. Reservation code: ' + code;
-            document.getElementById('book-btn').style.display = 'none';
-        }
-        function rate(el) {
-            const stars = el.querySelectorAll('span');
-            stars.forEach((s, i) => {
-                s.onclick = (e) => {
-                    stars.forEach((star, idx) => star.className = idx <= i ? 'active' : '');
-                    el.nextElementSibling.innerText = 'Rated ' + (i + 1) + ' stars!';
-                };
-            });
-        }
-    </script>
+    <footer>&copy; 2026 DZ Tourism</footer>
 </body>
 </html>
